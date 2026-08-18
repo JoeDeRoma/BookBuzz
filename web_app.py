@@ -125,10 +125,7 @@ def analyze():
             if key in ballot_selections:
                 ballot.included = ballot_selections[key]
         
-        # Rebuild included_ballots list
-        current_dataset.included_ballots = [b for b in current_dataset.ballots if b.included]
-        
-        # Run analysis
+        # Analyze with currently included ballots
         result = solve_ranked_pairs(current_dataset.candidates, current_dataset.ballots)
         current_result = result
         
