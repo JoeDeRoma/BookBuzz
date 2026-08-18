@@ -87,6 +87,10 @@ function loadBallots() {
     fetch('/api/ballots')
     .then(response => response.json())
     .then(data => {
+        if (!data || !data.ballots) {
+            console.log('No ballots loaded yet');
+            return;
+        }
         allBallots = data.ballots;
         selectedBallots.clear();
         
@@ -99,7 +103,8 @@ function loadBallots() {
 
         renderBallotTable();
         updateStats(data);
-    });
+    })
+    .catch(err => console.log('Loading ballots...', err));
 }
 
 function renderBallotTable() {

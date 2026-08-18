@@ -8,9 +8,15 @@ Then open: http://localhost:5000
 import os
 import io
 import csv
+import sys
 from pathlib import Path
 from flask import Flask, render_template, request, jsonify, send_file
 from werkzeug.utils import secure_filename
+
+# Fix encoding for Windows console
+if sys.platform == 'win32':
+    import io
+    sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 
 from engine.ballot_parser import parse_ballot_dataset
 from engine.ranked_pairs import solve_ranked_pairs
