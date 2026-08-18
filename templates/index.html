@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Buzz — Voting Resolver</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1>📚 Book Buzz</h1>
+                <p>Ranked Pairs (Tideman Condorcet) Ballot Analysis</p>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- File Upload Section -->
+            <section class="card" id="upload-section">
+                <h2>1. Load Ballot File</h2>
+                <div class="upload-area" id="upload-area">
+                    <input type="file" id="file-input" accept=".csv,.zip" style="display: none;">
+                    <div class="upload-content">
+                        <p class="upload-icon">📁</p>
+                        <p class="upload-text">Drag & drop your CSV or ZIP file here</p>
+                        <p class="upload-subtext">or <button id="browse-btn" class="link-btn">click to select</button></p>
+                    </div>
+                </div>
+                <div id="file-status" class="status-message"></div>
+            </section>
+
+            <!-- Dataset Info Section -->
+            <section class="card" id="dataset-section" style="display: none;">
+                <h2>2. Dataset Information</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <span class="stat-label">Total Ballots</span>
+                        <span class="stat-value" id="stat-total">0</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-label">Compliant</span>
+                        <span class="stat-value" id="stat-compliant">0</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-label">Non-Compliant</span>
+                        <span class="stat-value" id="stat-non-compliant">0</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-label">Included</span>
+                        <span class="stat-value" id="stat-included">0</span>
+                    </div>
+                </div>
+
+                <h3>Candidates</h3>
+                <div class="candidates-list" id="candidates-list"></div>
+
+                <h3>Ballots</h3>
+                <div class="ballots-section">
+                    <div class="ballot-actions">
+                        <button id="btn-select-all" class="btn btn-secondary">Select All</button>
+                        <button id="btn-deselect-all" class="btn btn-secondary">Deselect All</button>
+                        <button id="btn-exclude-invalid" class="btn btn-danger">Exclude Non-Compliant</button>
+                    </div>
+                    <table class="ballots-table">
+                        <thead>
+                            <tr>
+                                <th>Include</th>
+                                <th>Voter Name</th>
+                                <th>Ranked</th>
+                                <th>Compliance</th>
+                            </tr>
+                        </thead>
+                        <tbody id="ballots-tbody">
+                        </tbody>
+                    </table>
+                </div>
+
+                <button id="btn-analyze" class="btn btn-primary btn-large">3. Run Analysis</button>
+            </section>
+
+            <!-- Results Section -->
+            <section class="card" id="results-section" style="display: none;">
+                <h2>3. Analysis Results</h2>
+
+                <!-- Winner -->
+                <div class="winner-banner">
+                    <h3>👑 WINNER</h3>
+                    <p class="winner-name" id="winner-name">—</p>
+                </div>
+
+                <!-- Standings -->
+                <h3>Final Standings</h3>
+                <div class="standings-list" id="standings-list"></div>
+
+                <!-- Pairwise Matrix -->
+                <h3>Head-to-Head Matchups</h3>
+                <div class="matrix-wrapper">
+                    <table class="matrix-table" id="matrix-table">
+                    </table>
+                </div>
+
+                <!-- Export -->
+                <div class="export-section">
+                    <button id="btn-export" class="btn btn-secondary">📥 Export Results as CSV</button>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Book Buzz v1.0 | Powered by Ranked Pairs Condorcet Method</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>

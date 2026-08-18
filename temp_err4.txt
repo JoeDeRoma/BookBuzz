@@ -1,0 +1,50 @@
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+    import pandas as pd; df = pd.read_csv('c:/Users/josep/PycharmProjects/BookClub/Book Choice - March 2026.csv', encoding='utf-8-sig'); import sys; sys.path.append('c:/Users/josep/PycharmProjects/BookClub/'); import Condorcet; Condorcet.solve_voting('Book Choice - March 2026.csv', df)
+                                                                                                                                                                                                                                    ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\josep\PycharmProjects\BookClub\Condorcet.py", line 568, in solve_voting
+    unique_sc = sorted(list(set(sc_s)), reverse=True)
+                                ^^^^
+NameError: name 'sc_s' is not defined. Did you mean: 'sch_w'?
+Candidates (17):
+  1: Welcome to the Hyunam-Dong Bookshop
+  2: Stone Angels
+  3: Brian
+  4: About a Place in the Kinki Region
+  5: The Lion Women of Tehran
+  6: A Thousand Splendid Suns
+  7: The Remains of the Day
+  8: Klara and the Sun
+  9: Piranesi
+  10: The Shadow of the Wind
+  11: The Vegetarian
+  12: Convenience Store Woman
+  13: Kitchen
+  14: The Book Thief
+  15: Almond
+  16: The Door
+  17: The Alchemist
+
+Total Ballots: 18
+
+========================================
+WINNERS BY METHOD
+========================================
+Plurality: 1st: Convenience Store Woman / 2nd: Tie (Piranesi, The Shadow of the Wind, The Book Thief)
+Anti-plurality: 1st: The Book Thief / 2nd: Tie (The Remains of the Day, The Vegetarian)
+Two round system: 1st: Convenience Store Woman / 2nd: The Shadow of the Wind
+Instant-runoff: 1st: The Book Thief / 2nd: Convenience Store Woman
+Coombs: 1st: The Book Thief / 2nd: Piranesi
+Nanson: 1st: The Book Thief / 2nd: Tie (Welcome to the Hyunam-Dong Bookshop, A Thousand Splendid Suns, Piranesi, Convenience Store Woman)
+Baldwin: 1st: The Book Thief / 2nd: A Thousand Splendid Suns
+Tideman alternative: 1st: The Book Thief
+Minimax: 1st: The Book Thief / 2nd: Tie (Welcome to the Hyunam-Dong Bookshop, Piranesi)
+Copeland: 1st: The Book Thief / 2nd: Tie (A Thousand Splendid Suns, Convenience Store Woman)
+Black: 1st: The Book Thief
+Kemeny: 1st: The Book Thief / 2nd: A Thousand Splendid Suns
+Ranked pairs: 1st: The Book Thief / 2nd: A Thousand Splendid Suns
+Schulze: 1st: The Book Thief / 2nd: A Thousand Splendid Suns
+Borda: 1st: The Book Thief / 2nd: A Thousand Splendid Suns
+Bucklin: 1st: The Book Thief / 2nd: Tie (Welcome to the Hyunam-Dong Bookshop, A Thousand Splendid Suns, Piranesi, The Vegetarian, Convenience Store Woman)
+Approval: 1st: The Book Thief / 2nd: Tie (Welcome to the Hyunam-Dong Bookshop, A Thousand Splendid Suns, Piranesi, The Vegetarian, Convenience Store Woman)
+Majority Judgement: 1st: The Book Thief / 2nd: Tie (Welcome to the Hyunam-Dong Bookshop, A Thousand Splendid Suns, Piranesi, The Vegetarian, Convenience Store Woman)
